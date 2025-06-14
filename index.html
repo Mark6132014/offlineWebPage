@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDNS</title>
+</head>
+<body>
+    <input id="url" size="50" placeholder="Landing page is at minipc.landing.local" value="minipc.landing.local">
+    <button id="go">
+        Redirect!
+    </button>
+    <br>
+    <iframe style="height: 92vh; width: 100%; border: none;" src="landing/index.html" id="webloader"></iframe>
+    <script>
+        function loadWEBSITE(site) {
+            document.getElementById("webloader").src = "about:blank";
+            setTimeout(() => {
+                document.getElementById("webloader").src = site;
+            }, 500);
+        }
+        document.getElementById("go").addEventListener("click", () => {
+            let input = document.getElementById("url").value;
+            if (input == "http://minipc.landing.local" || "https://minipc.landing.local" || "minipc.landing.local") {
+                loadWEBSITE("landing/index.html");
+            }
+            if (input == "http://media.local" || "https://media.local" || "media.local") {
+                loadWEBSITE("http://media.local");
+            }
+            if (input == "http://iis.hollowaywebsites.local" || "https://iis.hollowaywebsites.local" || "iis.hollowaywebsites.local") {
+                loadWEBSITE("iis.htm");
+            }
+        });
+        </script>
+</body>
+</html>
